@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add-ons Selection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Select Add-ons</h1>
+        
+        <div class="addons-list">
+            <!-- Add-on 1 -->
+            <div class="addon-item">
+                <span class="addon-name">Popcorn</span>
+                <span class="addon-price">$5</span>
+                <input type="number" id="popcorn" min="0" placeholder="Quantity" onchange="updateTotal()">
+            </div>
+
+            <!-- Add-on 2 -->
+            <div class="addon-item">
+                <span class="addon-name">Soda</span>
+                <span class="addon-price">$3</span>
+                <input type="number" id="soda" min="0" placeholder="Quantity" onchange="updateTotal()">
+            </div>
+
+            <!-- Add-on 3 -->
+            <div class="addon-item">
+                <span class="addon-name">Parking</span>
+                <span class="addon-price">$10</span>
+                <input type="number" id="parking" min="0" placeholder="Quantity" onchange="updateTotal()">
+            </div>
+
+            <!-- Add-on 4 -->
+            <div class="addon-item">
+                <span class="addon-name">3D Glasses</span>
+                <span class="addon-price">$2</span>
+                <input type="number" id="glasses" min="0" placeholder="Quantity" onchange="updateTotal()">
+            </div>
+        </div>
+
+        <!-- Total Price Section -->
+        <div class="total-section">
+            <h2>Total: $<span id="totalPrice">0</span></h2>
+        </div>
+
+        <!-- Checkout Button -->
+        <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMyShow Payment Gateway</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+
+    <div class="payment-container">
+        <h2>Complete Your Booking</h2>
+
+        <div class="summary">
+            <h3>Booking Summary</h3>
+            <p>Movie: <strong>Inception</strong></p>
+            <p>Seats: <strong>A1, A2, A3</strong></p>
+            <p>Date & Time: <strong>Oct 2, 2024 - 7:00 PM</strong></p>
+            <p>Total Amount: <strong>₹900</strong></p>
+        </div>
+
+        <form id="payment-form">
+            <h3>Payment Information</h3>
+
+            <label for="cardNumber">Card Number</label>
+            <input type="text" id="cardNumber" placeholder="Enter card number" required>
+
+            <label for="cardHolder">Cardholder Name</label>
+            <input type="text" id="cardHolder" placeholder="Enter cardholder name" required>
+
+            <div class="inline-inputs">
+                <div>
+                    <label for="expiryDate">Expiry Date</label>
+                    <input type="text" id="expiryDate" placeholder="MM/YY" required>
+                </div>
+
+                <div>
+                    <label for="cvv">CVV</label>
+                    <input type="password" id="cvv" placeholder="123" required>
+                </div>
+            </div>
+
+            <div class="payment-options">
+                <label>
+                    <input type="radio" name="paymentMethod" value="credit" checked> Credit Card
+                </label>
+                <label>
+                    <input type="radio" name="paymentMethod" value="debit"> Debit Card
+                </label>
+                <label>
+                    <input type="radio" name="paymentMethod" value="upi"> UPI
+                </label>
+            </div>
+
+            <button type="submit">Pay ₹900</button>
+
+        </form>
+    </div>
+
+    <script src="script1.js"></script>
+</body>
+</html>

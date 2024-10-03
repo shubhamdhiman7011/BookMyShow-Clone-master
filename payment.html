@@ -3,60 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BookMyShow Payment Gateway</title>
-    <link rel="stylesheet" href="payment.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome for icons -->
+    <title>Payment Page</title>
 </head>
 <body>
-
-    <div class="payment-container">
-        <h2>Complete Your Booking</h2>
-
-        <div class="summary">
-            <h3>Booking Summary</h3>
-            <p>Movie: <strong>Inception</strong></p>
-            <p>Seats: <strong>A1, A2, A3</strong></p>
-            <p>Date & Time: <strong>Oct 2, 2024 - 7:00 PM</strong></p>
-            <p>Total Amount: <strong>₹900</strong></p>
+    <div class="container">
+        <div class="left">
+            <p>Select Payment Method</p>
+            <div class="methods">
+                <div onclick="doFun()">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <span id="tColorA">Credit Card</span>
+                </div>
+                <div onclick="doFunA()">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span id="tColorB">Bank Transfer</span>
+                </div>
+                <div onclick="doFunB()">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span id="tColorC">Wallet</span>
+                </div>
+            </div>
         </div>
-
-        <form id="payment-form">
-            <h3>Payment Information</h3>
-
-            <label for="cardNumber">Card Number</label>
-            <input type="text" id="cardNumber" placeholder="Enter card number" required>
-
-            <label for="cardHolder">Cardholder Name</label>
-            <input type="text" id="cardHolder" placeholder="Enter cardholder name" required>
-
-            <div class="inline-inputs">
-                <div>
-                    <label for="expiryDate">Expiry Date</label>
-                    <input type="text" id="expiryDate" placeholder="MM/YY" required>
+        
+        <div class="center">
+            <div class="card-details">
+                <h3>Card Details</h3>
+                <div class="c-number" id="c-number">
+                    <input type="text" id="number" placeholder="Card Number" maxlength="19" required>
                 </div>
-
-                <div>
-                    <label for="cvv">CVV</label>
-                    <input type="password" id="cvv" placeholder="123" required>
+                <div class="c-details">
+                    <input type="text" id="e-date" placeholder="MM/YY" class="cc-exp" maxlength="5" required>
+                    <div class="cvv-box" id="cvv-box">
+                        <input type="text" id="cvv" placeholder="CVV" class="cc-cvv" maxlength="3" required>
+                    </div>
                 </div>
             </div>
-
-            <div class="payment-options">
-                <label>
-                    <input type="radio" name="paymentMethod" value="credit" checked> Credit Card
-                </label>
-                <label>
-                    <input type="radio" name="paymentMethod" value="debit"> Debit Card
-                </label>
-                <label>
-                    <input type="radio" name="paymentMethod" value="upi"> UPI
-                </label>
+        </div>
+        
+        <div class="right">
+            <p>Summary</p>
+            <div class="details">
+                <p>Amount to Pay: <strong>₹900</strong></p>
+                <input type="email" placeholder="Email for receipt" required>
+                <button type="button" onclick="alert('Payment Successful!')">Pay Now</button>
             </div>
-
-            <button type="submit">Pay ₹900</button>
-
-        </form>
+        </div>
     </div>
 
-    <script src="payment.js"></script>
+    <script src="scripts.js"></script> <!-- Link to your JavaScript file -->
 </body>
 </html>
+

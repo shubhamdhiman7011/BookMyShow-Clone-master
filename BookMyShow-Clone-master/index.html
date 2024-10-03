@@ -36,6 +36,35 @@
 
 <body>
 
+    <div id="app">
+        <!-- Search Bar -->
+        <header>
+          <h1>Movie Discovery App</h1>
+          <input type="text" id="search-bar" placeholder="Search for a movie..." />
+        </header>
+    
+        <!-- Error Message -->
+        <div id="error-message" class="hidden"></div>
+    
+        <!-- Movies Grid -->
+        <section id="movies-grid"></section>
+    
+        <!-- Movie Details Modal -->
+        <div id="movie-detail-modal" class="modal hidden">
+          <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <div id="movie-details"></div>
+          </div>
+        </div>
+    
+        <!-- Loading Indicator -->
+        <div id="loading" class="hidden">Loading...</div>
+      </div>
+    
+      <script src="BookMyShow-Clone-master/js/debounce.js"></script>
+      <script src="BookMyShow-Clone-master/js/api.js"></script>
+      <script src="BookMyShow-Clone-master/js/app.js"></script>
+
     <!-- Wrapper -->
     <div class="wrapper">
 

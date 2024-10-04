@@ -1,32 +1,57 @@
-// Prices for each add-on
-const addonPrices = {
-    popcorn: 5,
-    soda: 3,
-    parking: 10,
-    glasses: 2
+// Function to get query parameters
+const getQueryParams = () => {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        totalPrice: parseInt(params.get('totalPrice')) || 0, // Get totalPrice, default to 0 if not present
+    };
 };
 
-// Function to calculate total price
-function updateTotal() {
-    let total = 0;
+// Get the initial total price from the URL
+const { totalPrice: initialTotalPrice } = getQueryParams();
 
-    // Get the quantities for each add-on
-    let popcornQty = parseInt(document.getElementById('popcorn').value) || 0;
-    let sodaQty = parseInt(document.getElementById('soda').value) || 0;
-    let parkingQty = parseInt(document.getElementById('parking').value) || 0;
-    let glassesQty = parseInt(document.getElementById('glasses').value) || 0;
+const selectedSeatsCount = document.getElementById('selected-seats'); // Display selected seat count
+const totalPriceElement = document.getElementById('total-price'); // Display total price
+const proceedToPaymentButton = document.getElementById('book-now'); // Proceed to payment button
 
-    // Calculate the total price
-    total += popcornQty * addonPrices.popcorn;
-    total += sodaQty * addonPrices.soda;
-    total += parkingQty * addonPrices.parking;
-    total += glassesQty * addonPrices.glasses;
+let selectedSeats = new Set(); // Use a Set to avoid duplicates
+let totalPrice = initialTotalPrice; // Initialize total price with the value from layout.js
 
-    // Update the total price in the DOM
-    document.getElementById('totalPrice').innerText = total.toFixed(2);
-}
+// Function to update the summary display
+const updateSummary = () => {
+    selectedSeatsCount.textContent = selectedSeats.size; // Update the count of selected seats
+    totalPriceElement.textContent = `Rs. ${totalPrice}`; // Update the total price
+};
 
-// Function to handle checkout
-function checkout() {
-    alert('Proceeding to checkout with total: $' + document.getElementById('totalPrice').innerText);
-}
+// Add click event listener for food items
+const foodItems = document.querySelectorAll('.food-item'); // Assuming you have food items with this class
+foodItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const foodPrice = parseInt(item.dataset.price); // Get food price from data attribute
+
+        if (item.classList.contains('selected')) {
+            // Deselect food item if already selected
+            item.classList.remove('selected');
+            totalPrice -= foodPrice; // Decrease total price
+        } else {
+            // Select food item if not already selected
+            item.classList.add('selected');
+            totalPrice += foodPrice; // Increase total price
+        }
+
+        // Update summary display
+        updateSummary();
+    });
+});
+
+// Add click event listener for the proceed to payment button
+proceedToPaymentButton.addEventListener('click', () => {
+    // Alert the final price before proceeding to payment
+    alert(`You are about to proceed to payment.\nTotal Amount: Rs. ${totalPrice}`);
+
+    // Redirect to the payment page (update the URL to your payment page)
+    window.location.href = `payment.html?totalPrice=${totalPrice}`; // Update to match payment.html
+});
+
+// Update the summary display initially
+updateSummary();
+

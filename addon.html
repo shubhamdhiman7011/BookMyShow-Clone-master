@@ -1,25 +1,35 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="addtocart.css">
-        <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <div class="header">
-            <p class="logo">LOGO</p>
-            <div class="cart"><i class="fa-solid fa-cart-shopping"></i><p id="count">0</p></div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addons</title>
+    <link rel="stylesheet" href="addon.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Ons</h1>
+        <div class="summary">
+            <h2>Selected Seats:</h2>
+            <div id="selected-seats">0</div>
+            <h2>Total Price: Rs. <span id="total-price">0</span></h2>
         </div>
-        <div class="container">
-            <div id="root"></div>
-            <div class="sidebar">
-                <div class="head"><p>My Cart</p></div>
-                <div id="cartItem">Your cart is empty</div>
-                <div class="foot">
-                    <h3>Total</h3>
-                    <h2 id="total">$ 0.00</h2>
-                </div>
-            </div>
+        
+        <h2>Select Your Food Items:</h2>
+        <div class="food-menu">
+            <div class="food-item" data-price="100">Pizza - Rs. 100</div>
+            <div class="food-item" data-price="50">Burger - Rs. 50</div>
+            <div class="food-item" data-price="30">Soda - Rs. 30</div>
+            <div class="food-item" data-price="120">Pasta - Rs. 120</div>
+            <div class="food-item" data-price="80">Salad - Rs. 80</div>
+            <div class="food-item" data-price="150">Steak - Rs. 150</div>
+            <div class="food-item" data-price="60">Fries - Rs. 60</div>
+            <div class="food-item" data-price="90">Ice Cream - Rs. 90</div>
         </div>
-        <script src="addtocart.js"></script>
-    </body>
+
+        <button id="book-now">Proceed to Payment</button>
+    </div>
+
+    <script src="addon.js"></script>
+</body>
 </html>

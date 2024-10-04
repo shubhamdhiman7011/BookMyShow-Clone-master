@@ -1,9 +1,12 @@
 /* General Body Styling */
 body {
-    background: linear-gradient(135deg, #000000 0%, rgb(88,33,32) 100%);
+    background: linear-gradient(135deg, #000000 0%, rgb(88, 33, 32) 100%);
     color: #f8f9fa;
     font-family: 'Arial', sans-serif;
+    margin: 0; /* Ensure no body margin */
+    padding: 0; /* Ensure no padding */
 }
+
 
 /* Header */
 h1 {
@@ -79,26 +82,26 @@ h1 {
     font-weight: bold;
     margin-bottom: 15px;
 }
-
-.btn-danger {
-    background-color: #ff4545;
-    border: none;
-    padding: 10px 20px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+/* Card Container Adjustments */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem; /* Padding for the overall container */
+    margin: 0 auto; /* Center the container */
+    max-width: 1200px; /* Set a max-width to prevent overly wide content */
+    gap: 2%; /* Ensure consistent gap between the cards */
 }
 
-.btn-danger:hover {
-    background-color: #ff3232;
-    transform: translateY(-5px);
-}
-
-/* Card Hover Effect */
+/* Card Styling */
 .card {
     border: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     color: black;
-    height: 80vh;
+    height: auto; /* Allow content to adjust height */
+    width: 48%; /* 2 columns - each card takes up 48% of the container width */
+    margin-bottom: 1.5rem; /* Add bottom margin between rows */
 }
 
 .card:hover {
@@ -106,19 +109,72 @@ h1 {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Image Styling */
+.card-img-top {
+    width: 100%; /* Full width inside the card */
+    height: 250px; /* Controlled height to balance image size */
+    object-fit: cover; /* Ensure image scales nicely */
+}
+
+/* Movie Title Styling */
+.card-title {
+    font-size: 1.2rem;
+    color: red;
+    text-align: center;
+    font-weight: bold;
+    margin: 0.5rem 0; /* Reduce top and bottom margin */
+}
+
+/* Text Styling */
+.card-text {
+    font-size: 1rem;
+    color: red;
+    margin-bottom: 0.5rem; /* Reduced bottom margin */
+    text-align: center;
+}
+
 /* Button Styling */
-.btn-danger {
-    background-color: #e3342f;
-    transition: all 0.2s ease-in-out;
-    position: relative;
-    left: 40px;
+.btn-custom {
+    background-color: red;
+    color: #111111;
+    padding: 8px 16px; /* Reduced padding for a smaller button */
+    border-radius: 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
 }
 
-.btn-danger:hover {
-    background-color: #ff4545;
-    transform: scale(1.1);
+.btn-custom:hover {
+    background-color: #ff0000;
+    color: #ffffff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+/* Card Body */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem; /* Reduce padding in card body */
+}
+
+/* Two-column layout */
+@media (min-width: 768px) {
+    .card {
+        width: 48%; /* Each card takes up 48% of the container */
+        margin: 0; /* Ensure no side margins, relying on gap for spacing */
+    }
+}
+
+/* One-column layout for smaller screens */
+@media (max-width: 767px) {
+    .card {
+        width: 100%; /* Full width for smaller screens */
+        margin: 0 0 1.5rem; /* Space between cards on smaller screens */
+    }
+}
 /* Footer Styling */
 .footer {
     background-color: #111111;

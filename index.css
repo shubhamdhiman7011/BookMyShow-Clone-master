@@ -20,11 +20,19 @@ h1 {
     transition: background-color 0.3s ease;
 }
 
-/* .navbar-brand {
-    font-size: 1.6rem;
-    color: #f8f9fa;
-} */
+/* Logo Styling */
+.logo {
+    width: 50px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
 
+.logo:hover {
+    transform: scale(1.1);
+}
+
+/* Navbar Link Styling */
 .nav-link {
     color: #f8f9fa !important;
     font-size: 1.2rem;
@@ -33,9 +41,26 @@ h1 {
 }
 
 .nav-link:hover {
-    color: #ffed4a !important;
+    color: #ff0000 !important; /* Red color on hover */
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 5px;
+}
+
+/* Login/Signup Button Styling */
+.btn-custom {
+    background-color: rgb(88,33,32); /* Primary button color */
+    color:white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-custom:hover {
+    background-color: #ff0000; /* Red on hover */
+    color: #ffffff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Carousel Styling */
